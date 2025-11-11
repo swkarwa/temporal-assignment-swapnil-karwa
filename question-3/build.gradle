@@ -1,0 +1,15 @@
+def custom_tasks = [
+        'q3-run-starter' : 'com.temporal.assignment.workers.Starter'
+]
+
+custom_tasks.each { taskName, className ->
+    tasks.register(taskName, JavaExec) {
+        group = "temporal"
+        description = "Run ${className}"
+        classpath = sourceSets.main.runtimeClasspath
+        mainClass.set(className)
+        standardOutput = System.out
+        errorOutput = System.err
+        args = []
+    }
+}

@@ -6,7 +6,7 @@ import io.temporal.serviceclient.WorkflowServiceStubs;
 import io.temporal.worker.Worker;
 import io.temporal.worker.WorkerFactory;
 
-public class WorkerStarter {
+public class FactoryStarter {
 
     public static final String TASK_QUEUE = "HELLO_TASK_QUEUE";
 

@@ -1,7 +1,7 @@
 package com.temporal.assignment.clients;
 
 import com.temporal.assignment.workflows.WorkflowInf;
-import com.temporal.assignment.workers.WorkerStarter;
+import com.temporal.assignment.workers.FactoryStarter;
 import io.temporal.client.WorkflowClient;
 import io.temporal.client.WorkflowOptions;
 import io.temporal.serviceclient.WorkflowServiceStubs;
@@ -22,7 +22,7 @@ public class WorkflowStarter {
     }
     public static void startWorkflow(WorkflowClient client , String workflowId , String name){
         WorkflowOptions options = WorkflowOptions.newBuilder()
-                .setTaskQueue(WorkerStarter.TASK_QUEUE)
+                .setTaskQueue(FactoryStarter.TASK_QUEUE)
                 .setWorkflowId(workflowId)
                 .build();
 
