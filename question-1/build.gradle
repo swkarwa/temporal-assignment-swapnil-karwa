@@ -1,0 +1,19 @@
+def custom_tasks = [
+        'run-worker-factory' : 'com.temporal.assignment.workers.WorkerStarter',
+        'run-workflow':'com.temporal.assignment.clients.WorkflowStarter',
+        'run-status-checker' : 'com.temporal.assignment.clients.WorkflowStatusChecker'
+]
+
+
+custom_tasks.each { taskName, className ->
+    tasks.register(taskName, JavaExec) {
+        group = "temporal"
+        description = "Run ${className}"
+        classpath = sourceSets.main.runtimeClasspath
+        mainClass.set(className)
+        standardOutput = System.out
+        errorOutput = System.err
+        args = []
+    }
+}
+

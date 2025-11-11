@@ -1,0 +1,16 @@
+def custom_tasks = [
+        'q2-run-worker-factory' : 'com.temporal.assignment.workers.WorkerStarter',
+        'q2-run-workflow':'com.temporal.assignment.workers.WorkflowStarter'
+]
+
+custom_tasks.each { taskName, className ->
+    tasks.register(taskName, JavaExec) {
+        group = "temporal"
+        description = "Run ${className}"
+        classpath = sourceSets.main.runtimeClasspath
+        mainClass.set(className)
+        standardOutput = System.out
+        errorOutput = System.err
+        args = []
+    }
+}

@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.temporal.assignment'
+version = '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+subprojects {
+
+    dependencies {
+        // temporal sdk
+        implementation 'io.temporal:temporal-sdk:1.24.1'
+        testImplementation 'io.temporal:temporal-testing:1.24.1'
+
+
+    }
+}

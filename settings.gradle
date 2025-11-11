@@ -1,0 +1,5 @@
+rootProject.name = 'temporal-assignment'
+include 'question-1'
+include 'question-1'
+include 'question-2'
+include 'play-ground'
